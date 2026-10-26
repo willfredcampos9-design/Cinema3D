@@ -1,0 +1,106 @@
+/* PASO 1: identidad visual de cine (rojo butaca, dorado marquesina, azul noche) */
+:root {
+    --bs-primary: #b3122b;
+    --bs-primary-rgb: 179, 18, 43;
+    --bs-body-color: #2a2a3b;
+    --bs-border-color: #e3e3ec;
+    --cine-gold: #f5c518;
+    --cine-night: #14141f;
+}
+
+body {
+    min-height: 100vh;
+    color: #e9e9f1;
+    background:
+        radial-gradient(ellipse at top, rgba(179, 18, 43, 0.38), transparent 60%),
+        var(--cine-night);
+}
+
+.cine-nav {
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 2px solid var(--cine-gold);
+}
+
+.cine-nav .navbar-brand {
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.cine-nav .navbar-brand span {
+    color: var(--cine-gold);
+}
+
+.cine-nav .nav-link {
+    color: #d8d8e6;
+}
+
+.cine-nav .nav-link:hover {
+    color: var(--cine-gold);
+}
+
+.page-title {
+    color: var(--cine-gold) !important;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    color: #b8b8cc !important;
+}
+
+.cine-card {
+    overflow: hidden;
+    border: 0;
+    border-top: 4px solid var(--bs-primary);
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.45) !important;
+}
+
+.cine-card .card-body {
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.form-label {
+    color: #8d1024;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-color: #cfcfdc;
+    border-radius: 0.55rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(179, 18, 43, 0.18);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary {
+    --bs-btn-bg: #b3122b;
+    --bs-btn-border-color: #b3122b;
+    --bs-btn-hover-bg: #8d0f22;
+    --bs-btn-hover-border-color: #8d0f22;
+    --bs-btn-active-bg: #730c1c;
+    --bs-btn-active-border-color: #730c1c;
+    border-radius: 0.6rem;
+    font-weight: 600;
+}
+
+/* PASO 5: tarjeta de resultados (estilo boleta) */
+.results-card .card-header {
+    background: var(--cine-gold);
+    color: var(--cine-night);
+    border-bottom: 0;
+}
+
+.results-card .card-body p:last-child {
+    margin-bottom: 0;
+}
