@@ -56,3 +56,53 @@
            value="{{ old('cantidad_boletas', $reserva?->cantidad_boletas ?? 1) }}" required>
     @error('cantidad_boletas') <div class="invalid-feedback">{{ $message }}</div> @enderror
 </div>
+
+{{-- ========== PASO 4: radios inline y checkboxes ========== --}}
+
+<!-- Formato de proyección (Radio Inline) -->
+<div class="mb-3">
+    <label class="form-label d-block">Formato de proyección</label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="formato" id="formato2d" value="2D" @checked($formato === '2D')>
+        <label class="form-check-label" for="formato2d">2D</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="formato" id="formato3d" value="3D" @checked($formato === '3D')>
+        <label class="form-check-label" for="formato3d">3D</label>
+    </div>
+    @error('formato') <div class="text-danger small">{{ $message }}</div> @enderror
+</div>
+
+<!-- Carné de estudiante (Radio Inline) -->
+<div class="mb-3">
+    <label class="form-label d-block">¿Tiene carné de estudiante?</label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="estudiante" id="estudianteSi" value="Sí" @checked($estudiante === 'Sí')>
+        <label class="form-check-label" for="estudianteSi">Sí</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="estudiante" id="estudianteNo" value="No" @checked($estudiante === 'No')>
+        <label class="form-check-label" for="estudianteNo">No</label>
+    </div>
+    @error('estudiante') <div class="text-danger small">{{ $message }}</div> @enderror
+</div>
+
+<!-- Snacks (Checkboxes en rejilla de 3 columnas, cargados desde la BD) -->
+<div class="mb-4">
+    <label class="form-label d-block">Snacks para la función:</label>
+    <div class="row">
+        @foreach ($snacks->chunk(max(1, (int) ceil($snacks->count() / 3))) as $columna)
+            <div class="col-md-4">
+                @foreach ($columna as $snack)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="snacks[]"
+                               value="{{ $snack->id }}" id="snack{{ $snack->id }}"
+                               @checked(in_array($snack->id, $marcados))>
+                        <label class="form-check-label" for="snack{{ $snack->id }}">{{ $snack->nombre }}</label>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div>
+    @error('snacks') <div class="text-danger small">{{ $message }}</div> @enderror
+</div>
