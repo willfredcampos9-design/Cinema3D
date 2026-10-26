@@ -13,6 +13,16 @@
 
             {{-- Mensajes de éxito / error del guardado (los llena el JS del Paso 6) --}}
             <div id="alertaEstado" class="alert d-none" role="alert"></div>
+
+            {{-- ========== PASO 5: zona de resultados (oculta hasta enviar) ========== --}}
+            <div id="resultados" class="mt-5" style="display: none;">
+                <div class="card cine-card results-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">🎟️ Resumen de tu reserva</h5>
+                    </div>
+                    <div class="card-body" id="contenidoResultados"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
