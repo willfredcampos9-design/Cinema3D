@@ -14,6 +14,23 @@
             {{-- Mensajes de éxito / error del guardado (los llena el JS del Paso 6) --}}
             <div id="alertaEstado" class="alert d-none" role="alert"></div>
 
+            {{-- ========== PASO 3 y 4: formulario (campos en _form.blade.php) ========== --}}
+            <div class="card cine-card">
+                <div class="card-body p-4">
+                    <form id="formularioBootstrap" action="{{ route('reservas.store') }}" method="POST">
+                        @csrf
+                        @include('reservas._form', ['reserva' => null])
+
+                        <!-- Botón de Envío -->
+                        <div class="d-grid">
+                            <button type="submit" id="btnEnviar" class="btn btn-primary btn-lg">
+                                Reservar y mostrar boleta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             {{-- ========== PASO 5: zona de resultados (oculta hasta enviar) ========== --}}
             <div id="resultados" class="mt-5" style="display: none;">
                 <div class="card cine-card results-card">
